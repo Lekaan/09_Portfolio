@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace _09_Portfolio
 {
@@ -17,7 +18,8 @@ namespace _09_Portfolio
 
         public override string ToString()
         {
-            string value = Value.ToString("F1").Replace(",", ".");
+            CultureInfo ci = new CultureInfo("en-us");
+            string value = Value.ToString("F1", ci);
             string interestRate = InterestRate.ToString("F1").Replace(",", ".");
 
             return "SavingsAccount[value=" + value + ",interestRate=" + interestRate + "]";
